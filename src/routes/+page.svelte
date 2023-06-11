@@ -1,2 +1,6 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import '$lib/style.css';
+</script>
+
+<h1>TODO</h1>
+<p>Add Todos and manage them!</p>
