@@ -42,7 +42,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: var(--accent-2);
 		border-radius: 0.5rem;
 		width: 2rem;
 		height: 2rem;
