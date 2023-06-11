@@ -11,7 +11,11 @@
 		<span class="pending" />
 	{/if}
 
-	<p class="title">{title}</p>
+	{#if completed}
+		<p class="title" style="text-decoration: line-through;">{title}</p>
+	{:else}
+		<p class="title">{title}</p>
+	{/if}
 
 	<span class="material-symbols-outlined remove"> remove </span>
 </div>
