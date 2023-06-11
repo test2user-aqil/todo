@@ -21,7 +21,7 @@ if (browser) {
 
 export const addTodo = (title: string) => {
 	todos.update((cur) => {
-		const newTodos = [...cur, { id: Date.now(), title, completed: false }];
+		const newTodos = [{ id: Date.now(), title, completed: false }, ...cur];
 		return newTodos;
 	});
 };
