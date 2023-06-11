@@ -1,8 +1,16 @@
 <script lang="ts">
+	import { addTodo } from '$lib/stores/todoStore';
+
+	let title: string;
+
+	const handleSubmit = () => {
+		addTodo(title);
+		title = '';
+	};
 </script>
 
-<form method="post">
-	<input type="text" placeholder="Add task..." />
+<form on:submit|preventDefault={handleSubmit}>
+	<input type="text" bind:value={title} placeholder="Add task..." />
 	<button type="submit"><span class="material-symbols-outlined"> add </span></button>
 </form>
 

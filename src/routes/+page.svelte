@@ -3,6 +3,7 @@
 	import GithubLink from '$lib/components/GithubLink.svelte';
 	import Todo from '$lib/components/Todo.svelte';
 	import TodoForm from '$lib/components/TodoForm.svelte';
+	import { todos } from '$lib/stores/todoStore';
 </script>
 
 <svelte:head>
@@ -21,7 +22,9 @@
 			<TodoForm />
 		</div>
 		<div class="todos">
-			<Todo id={Date.now()} title="Test todo1" completed={true} />
+			{#each $todos as todo}
+				<Todo id={todo.id} title={todo.title} completed={todo.completed} />
+			{/each}
 		</div>
 	</div>
 </div>

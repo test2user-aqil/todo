@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { removeTodo, toggleTodo } from '$lib/stores/todoStore';
+
 	export let id: number;
 	export let title: string;
 	export let completed: boolean;
@@ -6,9 +8,11 @@
 
 <div class="todo">
 	{#if completed}
-		<span class="material-symbols-outlined completed"> done </span>
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<span class="material-symbols-outlined completed" on:click={toggleTodo(id)}> done </span>
 	{:else}
-		<span class="pending" />
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<span class="pending" on:click={toggleTodo(id)} />
 	{/if}
 
 	{#if completed}
@@ -17,7 +21,8 @@
 		<p class="title">{title}</p>
 	{/if}
 
-	<span class="material-symbols-outlined remove"> remove </span>
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<span class="material-symbols-outlined remove" on:click={removeTodo(id)}> remove </span>
 </div>
 
 <style>
