@@ -7,7 +7,17 @@ interface Todo {
 	completed: boolean;
 }
 
-export const todos = writable<Todo[]>([]);
+const STORAGE_KEY = 'todos';
+const initialTodos = browser
+	? (JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]') as Todo[])
+	: [];
+export const todos = writable<Todo[]>(initialTodos);
+
+if (browser) {
+	todos.subscribe((updatedTodos) => {
+		localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedTodos));
+	});
+}
 
 export const addTodo = (title: string) => {
 	todos.update((cur) => {
