@@ -10,7 +10,7 @@
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
-	<input type="text" bind:value={title} placeholder="Add task..." />
+	<input type="text" bind:value={title} placeholder="Add task..." maxlength="84" />
 	<button type="submit"><span class="material-symbols-outlined"> add </span></button>
 </form>
 

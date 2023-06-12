@@ -27,6 +27,7 @@
 
 <style>
 	.todo {
+		max-width: 100%;
 		width: 100%;
 		display: flex;
 		flex-direction: row;
@@ -56,12 +57,15 @@
 		width: 2rem;
 		border: 2px solid var(--accent-1);
 		border-radius: 0.5rem;
+		aspect-ratio: 1;
 	}
 	.completed {
 		background: var(--accent-1);
+		aspect-ratio: 1;
 	}
 	.remove {
 		background: var(--accent-2);
+		aspect-ratio: 1;
 	}
 
 	.pending,
