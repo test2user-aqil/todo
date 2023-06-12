@@ -3,9 +3,13 @@
 	import GithubLink from '$lib/components/GithubLink.svelte';
 	import Todo from '$lib/components/Todo.svelte';
 	import TodoForm from '$lib/components/TodoForm.svelte';
-	import { todos } from '$lib/stores/todoStore';
+	import { filteredTodos, filter } from '$lib/stores/todoStore';
 
-	let filtered = false;
+	let filterValue = false;
+
+	function setFilter(value: boolean) {
+		filterValue = value;
+	}
 </script>
 
 <svelte:head>
@@ -23,12 +27,32 @@
 		<div class="form">
 			<TodoForm />
 			<div class="status">
-				<p class="total">Total: {$todos.length}</p>
-				<div class="filter" />
+				<p class="total">Total: {$filteredTodos.length}</p>
+				<div class="filter">
+					{#if $filter}
+						<button
+							on:click={() => {
+								$filter = false;
+							}}
+						>
+							<span class="material-symbols-outlined"> done </span>Hide completed
+						</button>
+					{:else}
+						<button
+							on:click={() => {
+								$filter = true;
+							}}
+						>
+							<span class="unchecked" />Hide completed
+						</button>
+					{/if}
+
+					<span />
+				</div>
 			</div>
 		</div>
 		<div class="todos">
-			{#each $todos as todo}
+			{#each $filteredTodos as todo}
 				<Todo id={todo.id} title={todo.title} completed={todo.completed} />
 			{/each}
 		</div>
@@ -80,6 +104,30 @@
 
 	.total {
 		color: var(--fg-muted);
+	}
+
+	.filter button {
+		background: none;
+		border: none;
+		color: var(--fg);
+		display: flex;
+		flex-direction: row;
+		gap: 0.25rem;
+	}
+	.filter button span {
+		width: 1rem;
+		height: 1rem;
+		border-radius: 0.25rem;
+	}
+
+	.filter button .material-symbols-outlined {
+		background: var(--accent-1);
+		display: flex;
+		font-size: 1rem;
+	}
+
+	.unchecked {
+		border: 2px solid var(--accent-1);
 	}
 
 	.todos {

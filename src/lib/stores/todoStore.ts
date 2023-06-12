@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { derived, writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
 interface Todo {
@@ -45,3 +45,13 @@ export const toggleTodo = (id: number) => {
 		return todos;
 	});
 };
+
+export const filter = writable<boolean>(false);
+
+export const filteredTodos = derived([todos, filter], ([$todos, $filter]) => {
+	if ($filter) {
+		return $todos.filter((todo) => !todo.completed);
+	} else {
+		return $todos;
+	}
+});
