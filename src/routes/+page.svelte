@@ -4,6 +4,8 @@
 	import Todo from '$lib/components/Todo.svelte';
 	import TodoForm from '$lib/components/TodoForm.svelte';
 	import { todos } from '$lib/stores/todoStore';
+
+	let filtered = false;
 </script>
 
 <svelte:head>
@@ -20,6 +22,10 @@
 	<div class="content">
 		<div class="form">
 			<TodoForm />
+			<div class="status">
+				<p class="total">Total: {$todos.length}</p>
+				<div class="filter" />
+			</div>
 		</div>
 		<div class="todos">
 			{#each $todos as todo}
@@ -60,6 +66,20 @@
 		flex-direction: column;
 		align-items: center;
 		width: 100%;
+		gap: 0.375rem;
+	}
+
+	.status {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0 0.75rem;
+		font-size: 0.875rem;
+	}
+
+	.total {
+		color: var(--fg-muted);
 	}
 
 	.todos {
