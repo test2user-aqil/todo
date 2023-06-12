@@ -71,4 +71,10 @@
 		order: 1;
 		align-self: stretch;
 	}
+
+	@media (max-width: 700px) {
+		.todos {
+			padding: 0 0.25rem;
+		}
+	}
 </style>
