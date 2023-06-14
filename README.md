@@ -1,38 +1,59 @@
-# create-svelte
+# Todo List App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a simple Todo List application built using SvelteKit. The app allows users to manage their tasks by adding, deleting, and marking them as complete. It also provides features like task filtering and displaying the total number of tasks.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Add new tasks:** Users can input a task and add it to the list.
+- **Delete tasks:** Users can remove tasks from the list.
+- **Mark tasks as complete:** Users can mark tasks as completed, visually distinguishing them from pending tasks.
+- **Filter tasks:** Users can filter tasks based on their completion status (completed or pending).
+- **Display task count:** The app shows the total number of tasks in the list.
+- **Persistence:** Tasks are stored in the browser's local storage, allowing users to revisit the app and still see their tasks.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Installation
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+1. Clone the repository:
 
-## Developing
+   ```bash
+   git clone https://github.com/test2user-aqil/todo.git
+   ```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+2. Navigate to the project directory:
 
-```bash
-npm run dev
+   ```bash
+   cd todo
+   ```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+3. Install the dependencies:
 
-## Building
+   ```bash
+   pnpm install
+   ```
 
-To create a production version of your app:
+4. Start the development server:
 
-```bash
-npm run build
-```
+   ```bash
+   pnpm dev
+   ```
 
-You can preview the production build with `npm run preview`.
+5. Open your browser and visit `http://localhost:5173` to see the app in action.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Additional Features
+
+You can enhance the Todo List App by adding the following features:
+
+- **Task editing:** Allow users to edit the content of existing tasks.
+- **Due dates:** Enable users to set due dates for their tasks.
+- **Priority levels:** Implement a priority system for tasks (e.g., high, medium, low).
+- **User authentication:** Add user authentication to secure the app and provide personalized task management.
+
+Feel free to customize the app according to your requirements and expand its functionality.
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request. Make sure to follow the project's code of conduct.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
